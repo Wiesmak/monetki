@@ -27,26 +27,26 @@ class Api::MonetyController < ApplicationController
         @moneta = Moneta.find(params[:id])
         if @moneta
             Moneta.update(moneta_params)
-            render json: { message: 'Zmodyfikowano monetę' }, status 200
+            render json: { message: 'Zmodyfikowano monetę' }, status: 200
         else
-            render error: { message: 'Nie udało zię zmodyfikować monety' }, status 400
+            render error: { message: 'Nie udało zię zmodyfikować monety' }, status: 400
         end
+    end
 
-        # DELETE /monety/:id
-        def destroy
-            @moneta = Moneta.find(params[:id])
-            if @moneta
-                @moneta.destroy
-                render json: { message: 'Usunięto monetę' }, status 200
-            else
-                render json: { message: 'Nie udało się usunąć monety' }, status 400
-            end
+    # DELETE /monety/:id
+    def destroy
+        @moneta = Moneta.find(params[:id])
+        if @moneta
+            @moneta.destroy
+            render json: { message: 'Usunięto monetę' }, status: 200
+        else
+            render json: { message: 'Nie udało się usunąć monety' }, status: 400
         end
+    end
 
-        private
+    private
 
-        def moneta_params
-            params.require(:moneta).permit(:flag, :nominal, :nr_kat, :stop)
-        end
-
+    def moneta_params
+        params.require(:monety).permit(:flag, :nominal, :nr_kat, :stop, :rok)
+    end
 end

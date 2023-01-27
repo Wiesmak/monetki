@@ -21,9 +21,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_27_102315) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "moneties", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end
