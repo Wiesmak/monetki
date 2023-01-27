@@ -1,0 +1,2 @@
+class Moneta < ApplicationRecord
+end
